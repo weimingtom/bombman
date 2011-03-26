@@ -39,6 +39,18 @@ namespace PaintBoard
                 get;
                 set;
             }
+
+            public int Width
+            {
+                get;
+                set;
+            }
+
+            public int Height
+            {
+                get;
+                set;
+            }
         }
 
         public PaintBoard()
@@ -80,6 +92,8 @@ namespace PaintBoard
             ClickEventArgs ea = new ClickEventArgs();
             ea.Row = row;
             ea.Col = col;
+            ea.Width = this.Width;
+            ea.Height = this.Height;
 
             if (OnClickGrid != null)
             {

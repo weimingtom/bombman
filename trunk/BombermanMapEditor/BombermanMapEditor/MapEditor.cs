@@ -88,7 +88,7 @@ namespace BombermanMapEditor
             Grid currentGrid = new Grid(y, x);
             currentGrid.ItemType = itemState;
             level.grids.Add(currentGrid);
-            Console.WriteLine(currentGrid.ItemType);
+            //Console.WriteLine(currentGrid.ItemType);
         }
     }
 }

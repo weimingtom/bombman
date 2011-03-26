@@ -1,6 +1,6 @@
 ﻿namespace BombermanMapEditor
 {
-    partial class Form1
+    partial class MapEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapEditor));
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.njkkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kjkkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +61,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.paintBoard1 = new PaintBoard.PaintBoard();
+            this.paintBoard = new PaintBoard.PaintBoard();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -181,6 +181,7 @@
             this.uwall.TabIndex = 3;
             this.uwall.Text = "U-Wall";
             this.uwall.UseVisualStyleBackColor = true;
+            this.uwall.Click += new System.EventHandler(this.uwall_Click);
             // 
             // dwall
             // 
@@ -190,6 +191,7 @@
             this.dwall.TabIndex = 4;
             this.dwall.Text = "D-Wall";
             this.dwall.UseVisualStyleBackColor = true;
+            this.dwall.Click += new System.EventHandler(this.dwall_Click);
             // 
             // player
             // 
@@ -199,6 +201,7 @@
             this.player.TabIndex = 6;
             this.player.Text = "Player";
             this.player.UseVisualStyleBackColor = true;
+            this.player.Click += new System.EventHandler(this.player_Click);
             // 
             // npc
             // 
@@ -208,6 +211,7 @@
             this.npc.TabIndex = 7;
             this.npc.Text = "NPC";
             this.npc.UseVisualStyleBackColor = true;
+            this.npc.Click += new System.EventHandler(this.npc_Click);
             // 
             // addbomb
             // 
@@ -217,6 +221,7 @@
             this.addbomb.TabIndex = 9;
             this.addbomb.Text = "+1 Bomb";
             this.addbomb.UseVisualStyleBackColor = true;
+            this.addbomb.Click += new System.EventHandler(this.addbomb_Click);
             // 
             // addflame
             // 
@@ -226,6 +231,7 @@
             this.addflame.TabIndex = 10;
             this.addflame.Text = "+1 Flame";
             this.addflame.UseVisualStyleBackColor = true;
+            this.addflame.Click += new System.EventHandler(this.addflame_Click);
             // 
             // faster
             // 
@@ -235,6 +241,7 @@
             this.faster.TabIndex = 11;
             this.faster.Text = "faster";
             this.faster.UseVisualStyleBackColor = true;
+            this.faster.Click += new System.EventHandler(this.faster_Click);
             // 
             // push
             // 
@@ -244,6 +251,7 @@
             this.push.TabIndex = 12;
             this.push.Text = "push";
             this.push.UseVisualStyleBackColor = true;
+            this.push.Click += new System.EventHandler(this.push_Click);
             // 
             // slower
             // 
@@ -253,6 +261,7 @@
             this.slower.TabIndex = 14;
             this.slower.Text = "slower";
             this.slower.UseVisualStyleBackColor = true;
+            this.slower.Click += new System.EventHandler(this.slower_Click);
             // 
             // drop
             // 
@@ -262,6 +271,7 @@
             this.drop.TabIndex = 15;
             this.drop.Text = "drop";
             this.drop.UseVisualStyleBackColor = true;
+            this.drop.Click += new System.EventHandler(this.drop_Click);
             // 
             // trigger
             // 
@@ -271,6 +281,7 @@
             this.trigger.TabIndex = 16;
             this.trigger.Text = "trigger";
             this.trigger.UseVisualStyleBackColor = true;
+            this.trigger.Click += new System.EventHandler(this.trigger_Click);
             // 
             // groupBox1
             // 
@@ -348,29 +359,30 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // paintBoard1
+            // paintBoard
             // 
-            this.paintBoard1.Location = new System.Drawing.Point(294, 52);
-            this.paintBoard1.Name = "paintBoard1";
-            this.paintBoard1.NumberOfCol = 15;
-            this.paintBoard1.NumberOfRow = 13;
-            this.paintBoard1.Size = new System.Drawing.Size(300, 260);
-            this.paintBoard1.TabIndex = 25;
-            this.paintBoard1.Text = "paintBoard1";
+            this.paintBoard.Location = new System.Drawing.Point(297, 116);
+            this.paintBoard.Name = "paintBoard";
+            this.paintBoard.NumberOfCol = 15;
+            this.paintBoard.NumberOfRow = 13;
+            this.paintBoard.Size = new System.Drawing.Size(300, 260);
+            this.paintBoard.TabIndex = 25;
+            this.paintBoard.Text = "paintBoard1";
+            this.paintBoard.OnClickGrid += new PaintBoard.PaintBoard.ClickEventHandler(this.paintBoard_OnClickGrid);
             // 
-            // Form1
+            // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 473);
-            this.Controls.Add(this.paintBoard1);
+            this.Controls.Add(this.paintBoard);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip2);
-            this.Name = "Form1";
+            this.Name = "MapEditor";
             this.Text = "Bomberman Map Editor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip2.ResumeLayout(false);
@@ -420,7 +432,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private PaintBoard.PaintBoard paintBoard1;
+        private PaintBoard.PaintBoard paintBoard;
     }
 }
 

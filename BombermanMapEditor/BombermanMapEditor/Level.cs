@@ -7,11 +7,13 @@ namespace BombermanMapEditor
 {
     class Level
     {
-        private List<Grid> grids;
+        public List<Grid> grids;
         private string levelName;
         
-        public Level()
+        public Level(string _name)
         {
+            levelName = _name;
+            grids = new List<Grid>();
         }
     }
 }

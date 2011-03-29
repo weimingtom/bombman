@@ -8,13 +8,13 @@ namespace BombermanMapEditor
 {
     public class LevelSerializor
     {
-        public FileStream Serialize(Level level)
+        public Stream Serialize(Level level)
         {
             using (FileStream output = new FileStream(level.Get_Level_Name(), FileMode.Create))
             {
                 XmlSerializer formatter = new XmlSerializer(typeof(Level));
                 formatter.Serialize(output, level);
-                return output;
+                return (Stream)output;
             }
         }
 

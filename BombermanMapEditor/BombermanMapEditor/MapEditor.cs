@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO
 
 namespace BombermanMapEditor
 {
@@ -89,6 +90,23 @@ namespace BombermanMapEditor
             currentGrid.ItemType = itemState;
             level.grids.Add(currentGrid);
             //Console.WriteLine(currentGrid.ItemType);
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                string fName = sfd.FileName;
+                LevelSerializor Serializor = new LevelSerializor();
+                StreamWriter stream = new StreamWriter(Serializor.Serialize(level));
+                stream.Write(fName);
+            }
+        }
+
+        private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        
         }
     }
 }

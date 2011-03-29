@@ -8,25 +8,16 @@ namespace BombermanMapEditor
 {
     public class LevelSerializor
     {
-        public Stream Serialize(Level level)
+        public void Serialize(Level level, Stream stream)
         {
-            using (FileStream output = new FileStream(level.Get_Level_Name(), FileMode.Create))
-            {
-                XmlSerializer formatter = new XmlSerializer(typeof(Level));
-                formatter.Serialize(output, level);
-                return (Stream)output;
-            }
+            XmlSerializer formatter = new XmlSerializer(typeof(Level));
+            formatter.Serialize(stream, level);
         }
 
-        public Level DeSerialize(string level_name)
+        public Level DeSerialize(Stream stream)
         {
-            Level level;
-            using (FileStream input = new FileStream(level_name, FileMode.Open))
-            {
-                XmlSerializer formatter = new XmlSerializer(typeof(Level));
-                level = (Level)formatter.Deserialize(input);
-                return level;
-            }
+            XmlSerializer formatter = new XmlSerializer(typeof(Level));
+            return (Level)formatter.Deserialize(stream);
         }
     }
 }

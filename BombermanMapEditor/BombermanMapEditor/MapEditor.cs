@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO
+using System.IO;
 
 namespace BombermanMapEditor
 {
@@ -18,7 +18,8 @@ namespace BombermanMapEditor
         public MapEditor()
         {
             InitializeComponent();
-            level = new Level("");
+            //level = new Level("");
+            level = new Level();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -92,21 +93,32 @@ namespace BombermanMapEditor
             //Console.WriteLine(currentGrid.ItemType);
         }
 
+        //Save as
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                string fName = sfd.FileName;
-                LevelSerializor Serializor = new LevelSerializor();
-                StreamWriter stream = new StreamWriter(Serializor.Serialize(level));
-                stream.Write(fName);
+                LevelSerializor serializor = new LevelSerializor();
+                serializor.Serialize(this.level, sfd.OpenFile());
             }
         }
 
+        // OPEN
         private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        
+            OpenFileDialog ofd = new OpenFileDialog();
+            if(ofd.ShowDialog() == DialogResult.OK)
+            {
+                LevelSerializor serializor = new LevelSerializor();
+                this.level = serializor.DeSerialize(ofd.OpenFile());
+            }
+        }
+
+        //Exit
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

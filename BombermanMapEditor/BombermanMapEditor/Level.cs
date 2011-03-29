@@ -8,16 +8,9 @@ namespace BombermanMapEditor
     public class Level
     {
         public List<Grid> grids;
-        private string levelName;
 
-        public string Get_Level_Name()
+        public Level()
         {
-            return levelName;
-        }
-        
-        public Level(string _name)
-        {
-            levelName = _name;
             grids = new List<Grid>();
         }
     }

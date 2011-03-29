@@ -12,6 +12,10 @@ namespace BombermanMapEditor
 
     public class Grid
     {
+        public Grid()
+        {
+        }
+
         public Grid(int _row,int _col)
         {
             PosX = _row;

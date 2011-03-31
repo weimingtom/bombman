@@ -5,14 +5,9 @@ using System.Text;
 
 namespace BombermanMapEditor
 {
-    public enum Wall
+    public enum State
     {
-        Empty, Uwall, Dwall
-    }
-
-    public enum Character
-    {
-        Empty, Player, NPC
+        Empty, Uwall, Dwall, Player, NPC
     }
     
     public class Grid
@@ -21,31 +16,25 @@ namespace BombermanMapEditor
         {
         }
 
-        public Grid(int _row,int _col)
+        public Grid(int row,int col)
         {
-            PosX = _row;
-            PosY = _col;
+            Row = row;
+            Col = col;
         }
 
-        public int PosX
+        public int Row
         {
             get;
             set;
         }
 
-         public int PosY
+         public int Col
         {
              get;
              set;
         }
 
-         public Wall WallType
-         {
-             get;
-             set;
-         }
-
-         public Character CharacterType
+         public State GridState
          {
              get;
              set;

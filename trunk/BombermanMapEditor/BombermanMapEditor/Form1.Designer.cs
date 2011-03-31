@@ -218,6 +218,7 @@
             this.player.TabIndex = 6;
             this.player.Text = "Player";
             this.player.UseVisualStyleBackColor = true;
+            this.player.Click += new System.EventHandler(this.player_Click);
             // 
             // npc
             // 
@@ -227,6 +228,7 @@
             this.npc.TabIndex = 7;
             this.npc.Text = "NPC";
             this.npc.UseVisualStyleBackColor = true;
+            this.npc.Click += new System.EventHandler(this.npc_Click);
             // 
             // groupBox1
             // 

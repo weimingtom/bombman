@@ -13,5 +13,47 @@ namespace BombermanMapEditor
         {
             grids = new List<Grid>();
         }
+
+        public int AddBombP
+        {
+            get;
+            set;
+        }
+
+        public int AddFlameP
+        {
+            get;
+            set;
+        }
+
+        public int FasterP
+        {
+            get;
+            set;
+        }
+
+        public int PushP
+        {
+            get;
+            set;
+        }
+
+        public int Trigger
+        {
+            get;
+            set;
+        }
+
+        public int Slower
+        {
+            get;
+            set;
+        }
+
+        public int Drop
+        {
+            get;
+            set;
+        }
     }
 }

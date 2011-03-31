@@ -49,33 +49,33 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.percent = new System.Windows.Forms.Label();
+            this.trigger = new System.Windows.Forms.Label();
+            this.push = new System.Windows.Forms.Label();
+            this.faster = new System.Windows.Forms.Label();
+            this.addFlame = new System.Windows.Forms.Label();
+            this.cv = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.triggerp = new System.Windows.Forms.TextBox();
+            this.pushp = new System.Windows.Forms.TextBox();
+            this.fasterp = new System.Windows.Forms.TextBox();
+            this.addflamep = new System.Windows.Forms.TextBox();
+            this.addbombp = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dropp = new System.Windows.Forms.TextBox();
+            this.slowerp = new System.Windows.Forms.TextBox();
+            this.drop = new System.Windows.Forms.Label();
+            this.slower = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.paintBoard = new PaintBoard.PaintBoard();
-            this.cv = new System.Windows.Forms.Label();
-            this.addFlame = new System.Windows.Forms.Label();
-            this.faster = new System.Windows.Forms.Label();
-            this.push = new System.Windows.Forms.Label();
-            this.trigger = new System.Windows.Forms.Label();
-            this.slower = new System.Windows.Forms.Label();
-            this.drop = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.percent = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -218,7 +218,6 @@
             this.player.TabIndex = 6;
             this.player.Text = "Player";
             this.player.UseVisualStyleBackColor = true;
-            this.player.Click += new System.EventHandler(this.player_Click);
             // 
             // npc
             // 
@@ -228,7 +227,6 @@
             this.npc.TabIndex = 7;
             this.npc.Text = "NPC";
             this.npc.UseVisualStyleBackColor = true;
-            this.npc.Click += new System.EventHandler(this.npc_Click);
             // 
             // groupBox1
             // 
@@ -265,17 +263,107 @@
             this.groupBox3.Controls.Add(this.addFlame);
             this.groupBox3.Controls.Add(this.cv);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.triggerp);
+            this.groupBox3.Controls.Add(this.pushp);
+            this.groupBox3.Controls.Add(this.fasterp);
+            this.groupBox3.Controls.Add(this.addflamep);
+            this.groupBox3.Controls.Add(this.addbombp);
             this.groupBox3.Location = new System.Drawing.Point(12, 237);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(186, 148);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bonus";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(139, 123);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(11, 12);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "%";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(139, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(11, 12);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "%";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(139, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(11, 12);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "%";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(139, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(11, 12);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "%";
+            // 
+            // percent
+            // 
+            this.percent.AutoSize = true;
+            this.percent.Location = new System.Drawing.Point(139, 17);
+            this.percent.Name = "percent";
+            this.percent.Size = new System.Drawing.Size(11, 12);
+            this.percent.TabIndex = 35;
+            this.percent.Text = "%";
+            // 
+            // trigger
+            // 
+            this.trigger.AutoSize = true;
+            this.trigger.Location = new System.Drawing.Point(43, 123);
+            this.trigger.Name = "trigger";
+            this.trigger.Size = new System.Drawing.Size(47, 12);
+            this.trigger.TabIndex = 33;
+            this.trigger.Text = "Trigger";
+            // 
+            // push
+            // 
+            this.push.AutoSize = true;
+            this.push.Location = new System.Drawing.Point(43, 96);
+            this.push.Name = "push";
+            this.push.Size = new System.Drawing.Size(29, 12);
+            this.push.TabIndex = 34;
+            this.push.Text = "Push";
+            // 
+            // faster
+            // 
+            this.faster.AutoSize = true;
+            this.faster.Location = new System.Drawing.Point(43, 69);
+            this.faster.Name = "faster";
+            this.faster.Size = new System.Drawing.Size(41, 12);
+            this.faster.TabIndex = 33;
+            this.faster.Text = "Faster";
+            // 
+            // addFlame
+            // 
+            this.addFlame.AutoSize = true;
+            this.addFlame.Location = new System.Drawing.Point(43, 43);
+            this.addFlame.Name = "addFlame";
+            this.addFlame.Size = new System.Drawing.Size(53, 12);
+            this.addFlame.TabIndex = 33;
+            this.addFlame.Text = "+1 Flame";
+            // 
+            // cv
+            // 
+            this.cv.AutoSize = true;
+            this.cv.Location = new System.Drawing.Point(43, 17);
+            this.cv.Name = "cv";
+            this.cv.Size = new System.Drawing.Size(47, 12);
+            this.cv.TabIndex = 32;
+            this.cv.Text = "+1 bomb";
             // 
             // label1
             // 
@@ -285,47 +373,52 @@
             this.label1.Size = new System.Drawing.Size(0, 12);
             this.label1.TabIndex = 31;
             // 
-            // textBox5
+            // triggerp
             // 
-            this.textBox5.Location = new System.Drawing.Point(107, 121);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(30, 21);
-            this.textBox5.TabIndex = 30;
+            this.triggerp.Location = new System.Drawing.Point(107, 121);
+            this.triggerp.Name = "triggerp";
+            this.triggerp.Size = new System.Drawing.Size(30, 21);
+            this.triggerp.TabIndex = 30;
+            this.triggerp.TextChanged += new System.EventHandler(this.triggerp_TextChanged);
             // 
-            // textBox4
+            // pushp
             // 
-            this.textBox4.Location = new System.Drawing.Point(107, 94);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(30, 21);
-            this.textBox4.TabIndex = 29;
+            this.pushp.Location = new System.Drawing.Point(107, 94);
+            this.pushp.Name = "pushp";
+            this.pushp.Size = new System.Drawing.Size(30, 21);
+            this.pushp.TabIndex = 29;
+            this.pushp.TextChanged += new System.EventHandler(this.pushp_TextChanged);
             // 
-            // textBox3
+            // fasterp
             // 
-            this.textBox3.Location = new System.Drawing.Point(107, 67);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(30, 21);
-            this.textBox3.TabIndex = 28;
+            this.fasterp.Location = new System.Drawing.Point(107, 67);
+            this.fasterp.Name = "fasterp";
+            this.fasterp.Size = new System.Drawing.Size(30, 21);
+            this.fasterp.TabIndex = 28;
+            this.fasterp.TextChanged += new System.EventHandler(this.fasterp_TextChanged);
             // 
-            // textBox2
+            // addflamep
             // 
-            this.textBox2.Location = new System.Drawing.Point(107, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(30, 21);
-            this.textBox2.TabIndex = 27;
+            this.addflamep.Location = new System.Drawing.Point(107, 40);
+            this.addflamep.Name = "addflamep";
+            this.addflamep.Size = new System.Drawing.Size(30, 21);
+            this.addflamep.TabIndex = 27;
+            this.addflamep.TextChanged += new System.EventHandler(this.addflamep_TextChanged);
             // 
-            // textBox1
+            // addbombp
             // 
-            this.textBox1.Location = new System.Drawing.Point(107, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(30, 21);
-            this.textBox1.TabIndex = 26;
+            this.addbombp.Location = new System.Drawing.Point(107, 12);
+            this.addbombp.Name = "addbombp";
+            this.addbombp.Size = new System.Drawing.Size(30, 21);
+            this.addbombp.TabIndex = 26;
+            this.addbombp.TextChanged += new System.EventHandler(this.addbombp_TextChanged);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.textBox7);
-            this.groupBox4.Controls.Add(this.textBox6);
+            this.groupBox4.Controls.Add(this.dropp);
+            this.groupBox4.Controls.Add(this.slowerp);
             this.groupBox4.Controls.Add(this.drop);
             this.groupBox4.Controls.Add(this.slower);
             this.groupBox4.Location = new System.Drawing.Point(12, 409);
@@ -334,6 +427,58 @@
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Malus";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(139, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(11, 12);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(139, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(11, 12);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "%";
+            // 
+            // dropp
+            // 
+            this.dropp.Location = new System.Drawing.Point(107, 41);
+            this.dropp.Name = "dropp";
+            this.dropp.Size = new System.Drawing.Size(30, 21);
+            this.dropp.TabIndex = 36;
+            this.dropp.TextChanged += new System.EventHandler(this.dropp_TextChanged);
+            // 
+            // slowerp
+            // 
+            this.slowerp.Location = new System.Drawing.Point(107, 14);
+            this.slowerp.Name = "slowerp";
+            this.slowerp.Size = new System.Drawing.Size(30, 21);
+            this.slowerp.TabIndex = 35;
+            this.slowerp.TextChanged += new System.EventHandler(this.slowerp_TextChanged);
+            // 
+            // drop
+            // 
+            this.drop.AutoSize = true;
+            this.drop.Location = new System.Drawing.Point(43, 44);
+            this.drop.Name = "drop";
+            this.drop.Size = new System.Drawing.Size(29, 12);
+            this.drop.TabIndex = 33;
+            this.drop.Text = "Drop";
+            // 
+            // slower
+            // 
+            this.slower.AutoSize = true;
+            this.slower.Location = new System.Drawing.Point(43, 17);
+            this.slower.Name = "slower";
+            this.slower.Size = new System.Drawing.Size(41, 12);
+            this.slower.TabIndex = 35;
+            this.slower.Text = "Slower";
             // 
             // toolStrip1
             // 
@@ -372,153 +517,12 @@
             this.paintBoard.TabIndex = 25;
             this.paintBoard.Text = "paintBoard1";
             this.paintBoard.OnClickGrid += new PaintBoard.PaintBoard.ClickEventHandler(this.paintBoard_OnClickGrid);
-            this.paintBoard.Click += new System.EventHandler(this.paintBoard_Click);
-            // 
-            // cv
-            // 
-            this.cv.AutoSize = true;
-            this.cv.Location = new System.Drawing.Point(43, 17);
-            this.cv.Name = "cv";
-            this.cv.Size = new System.Drawing.Size(47, 12);
-            this.cv.TabIndex = 32;
-            this.cv.Text = "+1 bomb";
-            // 
-            // addFlame
-            // 
-            this.addFlame.AutoSize = true;
-            this.addFlame.Location = new System.Drawing.Point(43, 43);
-            this.addFlame.Name = "addFlame";
-            this.addFlame.Size = new System.Drawing.Size(53, 12);
-            this.addFlame.TabIndex = 33;
-            this.addFlame.Text = "+1 Flame";
-            // 
-            // faster
-            // 
-            this.faster.AutoSize = true;
-            this.faster.Location = new System.Drawing.Point(43, 69);
-            this.faster.Name = "faster";
-            this.faster.Size = new System.Drawing.Size(41, 12);
-            this.faster.TabIndex = 33;
-            this.faster.Text = "Faster";
-            // 
-            // push
-            // 
-            this.push.AutoSize = true;
-            this.push.Location = new System.Drawing.Point(43, 96);
-            this.push.Name = "push";
-            this.push.Size = new System.Drawing.Size(29, 12);
-            this.push.TabIndex = 34;
-            this.push.Text = "Push";
-            // 
-            // trigger
-            // 
-            this.trigger.AutoSize = true;
-            this.trigger.Location = new System.Drawing.Point(43, 123);
-            this.trigger.Name = "trigger";
-            this.trigger.Size = new System.Drawing.Size(47, 12);
-            this.trigger.TabIndex = 33;
-            this.trigger.Text = "Trigger";
-            // 
-            // slower
-            // 
-            this.slower.AutoSize = true;
-            this.slower.Location = new System.Drawing.Point(43, 17);
-            this.slower.Name = "slower";
-            this.slower.Size = new System.Drawing.Size(41, 12);
-            this.slower.TabIndex = 35;
-            this.slower.Text = "Slower";
-            // 
-            // drop
-            // 
-            this.drop.AutoSize = true;
-            this.drop.Location = new System.Drawing.Point(43, 44);
-            this.drop.Name = "drop";
-            this.drop.Size = new System.Drawing.Size(29, 12);
-            this.drop.TabIndex = 33;
-            this.drop.Text = "Drop";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(107, 14);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(30, 21);
-            this.textBox6.TabIndex = 35;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(107, 41);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(30, 21);
-            this.textBox7.TabIndex = 36;
-            // 
-            // percent
-            // 
-            this.percent.AutoSize = true;
-            this.percent.Location = new System.Drawing.Point(139, 17);
-            this.percent.Name = "percent";
-            this.percent.Size = new System.Drawing.Size(11, 12);
-            this.percent.TabIndex = 35;
-            this.percent.Text = "%";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(139, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(11, 12);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "%";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(11, 12);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "%";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(139, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(11, 12);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "%";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(139, 123);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(11, 12);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "%";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(139, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(11, 12);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "%";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(139, 44);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(11, 12);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "%";
             // 
             // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 493);
+            this.ClientSize = new System.Drawing.Size(692, 503);
             this.Controls.Add(this.paintBoard);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox4);
@@ -573,11 +577,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private PaintBoard.PaintBoard paintBoard;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox triggerp;
+        private System.Windows.Forms.TextBox pushp;
+        private System.Windows.Forms.TextBox fasterp;
+        private System.Windows.Forms.TextBox addflamep;
+        private System.Windows.Forms.TextBox addbombp;
         private System.Windows.Forms.Label cv;
         private System.Windows.Forms.Label trigger;
         private System.Windows.Forms.Label push;
@@ -590,8 +594,8 @@
         private System.Windows.Forms.Label percent;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox dropp;
+        private System.Windows.Forms.TextBox slowerp;
         private System.Windows.Forms.Label drop;
         private System.Windows.Forms.Label slower;
     }

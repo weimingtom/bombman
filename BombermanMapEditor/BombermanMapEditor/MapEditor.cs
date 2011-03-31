@@ -12,7 +12,8 @@ namespace BombermanMapEditor
 {
     public partial class MapEditor : Form
     {
-        private GridState itemState = GridState.Empty;
+        private Wall wallType = Wall.Empty;
+        private Character characterType = Character.Empty;
         private Level level;
 
         public MapEditor()
@@ -29,66 +30,21 @@ namespace BombermanMapEditor
 
         private void uwall_Click(object sender, EventArgs e)
         {
-            itemState = GridState.Uwall;
+            wallType = Wall.Uwall;
         }
 
         private void dwall_Click(object sender, EventArgs e)
         {
-            itemState = GridState.Dwall;
-        }
-
-        private void player_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.Player;
-        }
-
-        private void npc_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.NPC;
-        }
-
-        private void addbomb_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.AddBomb;
-        }
-
-        private void addflame_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.AddFlame;
-        }
-
-        private void faster_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.Faster;
-        }
-
-        private void push_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.Push;
-        }
-
-        private void trigger_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.Trigger;
-        }
-
-        private void slower_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.Slower;
-        }
-
-        private void drop_Click(object sender, EventArgs e)
-        {
-            itemState = GridState.Drop;
+            wallType = Wall.Dwall;
         }
 
         private void paintBoard_OnClickGrid(object sender, PaintBoard.PaintBoard.ClickEventArgs e)
         {
             int x = e.Col;
             int y = e.Row;
-            //int index = y * e.Width + x - 1;
             Grid currentGrid = new Grid(y, x);
-            currentGrid.ItemType = itemState;
+            currentGrid.WallType = wallType;
+            currentGrid.CharacterType = characterType;
             level.grids.Add(currentGrid);
             //Console.WriteLine(currentGrid.ItemType);
         }
@@ -121,9 +77,60 @@ namespace BombermanMapEditor
             Application.Exit();
         }
 
-        private void paintBoard_Click(object sender, EventArgs e)
+        private void addbombp_TextChanged(object sender, EventArgs e)
         {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.AddBombP = value;
+        }
 
+        private void addflamep_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.AddFlameP = value;
+        }
+
+        private void fasterp_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.FasterP = value;
+        }
+
+        private void pushp_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.PushP = value;
+        }
+
+        private void triggerp_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.TriggerP = value;
+        }
+
+        private void slowerp_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.SlowerP = value;
+        }
+
+        private void dropp_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)(sender);
+            int value = int.Parse(tb.Text);
+            if (value >= 0 && value <= 100)
+                level.DropP = value;
         }
     }
 }

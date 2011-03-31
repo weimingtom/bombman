@@ -12,7 +12,7 @@ namespace BombermanMapEditor
 
     public enum Character
     {
-        Player,NPC
+        Empty, Player, NPC
     }
     
     public class Grid

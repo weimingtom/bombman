@@ -12,8 +12,7 @@ namespace BombermanMapEditor
 {
     public partial class MapEditor : Form
     {
-        private Wall wallType = Wall.Empty;
-        private Character characterType = Character.Empty;
+        private State type = State.Empty;
         private Level level;
 
         public MapEditor()
@@ -30,23 +29,21 @@ namespace BombermanMapEditor
 
         private void uwall_Click(object sender, EventArgs e)
         {
-            wallType = Wall.Uwall;
+            type = State.Uwall;
         }
 
         private void dwall_Click(object sender, EventArgs e)
         {
-            wallType = Wall.Dwall;
+            type = State.Dwall;
         }
 
         private void paintBoard_OnClickGrid(object sender, PaintBoard.PaintBoard.ClickEventArgs e)
         {
             int x = e.Col;
             int y = e.Row;
-            Grid currentGrid = new Grid(y, x);
-            currentGrid.WallType = wallType;
-            currentGrid.CharacterType = characterType;
-            level.grids.Add(currentGrid);
-            //Console.WriteLine(currentGrid.ItemType);
+            Grid currentGrid = level.GetGrid(y, x);
+            level.SetGrid(y, x, ref currentGrid, type);
+            //Console.WriteLine(currentGrid.GridState);
         }
 
         //Save as
@@ -131,6 +128,16 @@ namespace BombermanMapEditor
             int value = int.Parse(tb.Text);
             if (value >= 0 && value <= 100)
                 level.DropP = value;
+        }
+
+        private void player_Click(object sender, EventArgs e)
+        {
+            type = State.Player;
+        }
+
+        private void npc_Click(object sender, EventArgs e)
+        {
+            type = State.NPC;
         }
     }
 }

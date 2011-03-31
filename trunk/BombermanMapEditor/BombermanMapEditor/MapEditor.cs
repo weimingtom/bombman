@@ -16,6 +16,22 @@ namespace BombermanMapEditor
         private Level level;
         private PaintBoard.PaintBoard paintBoard;
 
+        private void initPaintBoard()
+        {
+            if (paintBoard != null)
+                paintBoard.Dispose();
+            paintBoard = new PaintBoard.PaintBoard();
+            this.Controls.Add(this.paintBoard);
+            this.paintBoard.Location = new System.Drawing.Point(297, 116);
+            this.paintBoard.Name = "paintBoard";
+            this.paintBoard.NumberOfCol = 15;
+            this.paintBoard.NumberOfRow = 13;
+            this.paintBoard.Size = new System.Drawing.Size(300, 260);
+            this.paintBoard.TabIndex = 25;
+            this.paintBoard.Text = "paintBoard1";
+            this.paintBoard.OnClickGrid += new PaintBoard.PaintBoard.ClickEventHandler(this.paintBoard_OnClickGrid);
+        }
+
         public MapEditor()
         {
             InitializeComponent();
@@ -61,16 +77,13 @@ namespace BombermanMapEditor
         // New
         private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            paintBoard = new PaintBoard.PaintBoard();
-            this.Controls.Add(this.paintBoard);
-            this.paintBoard.Location = new System.Drawing.Point(297, 116);
-            this.paintBoard.Name = "paintBoard";
-            this.paintBoard.NumberOfCol = 15;
-            this.paintBoard.NumberOfRow = 13;
-            this.paintBoard.Size = new System.Drawing.Size(300, 260);
-            this.paintBoard.TabIndex = 25;
-            this.paintBoard.Text = "paintBoard1";
-            this.paintBoard.OnClickGrid += new PaintBoard.PaintBoard.ClickEventHandler(this.paintBoard_OnClickGrid);
+            initPaintBoard();
+            if (level != null)
+            {
+                level = null;
+                level = new Level();
+            }
+            type = State.Empty;
         }
 
         //Exit

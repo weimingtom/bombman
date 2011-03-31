@@ -5,11 +5,16 @@ using System.Text;
 
 namespace BombermanMapEditor
 {
-    public enum GridState
+    public enum Wall
     {
-        Empty,Uwall,Dwall,Player,NPC,AddBomb,AddFlame,Faster,Push,Trigger,Slower,Drop
+        Empty, Uwall, Dwall
     }
 
+    public enum Character
+    {
+        Player,NPC
+    }
+    
     public class Grid
     {
         public Grid()
@@ -34,11 +39,16 @@ namespace BombermanMapEditor
              set;
         }
 
-         public GridState ItemType
+         public Wall WallType
          {
              get;
              set;
          }
 
+         public Character CharacterType
+         {
+             get;
+             set;
+         }
     }
 }

@@ -120,5 +120,10 @@ namespace BombermanMapEditor
         {
             Application.Exit();
         }
+
+        private void paintBoard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

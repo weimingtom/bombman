@@ -14,6 +14,7 @@ namespace BombermanMapEditor
     {
         private State type = State.Empty;
         private Level level;
+        private PaintBoard.PaintBoard paintBoard;
 
         public MapEditor()
         {
@@ -57,15 +58,19 @@ namespace BombermanMapEditor
             }
         }
 
-        // OPEN
+        // New
         private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if(ofd.ShowDialog() == DialogResult.OK)
-            {
-                LevelSerializor serializor = new LevelSerializor();
-                this.level = serializor.DeSerialize(ofd.OpenFile());
-            }
+            paintBoard = new PaintBoard.PaintBoard();
+            this.Controls.Add(this.paintBoard);
+            this.paintBoard.Location = new System.Drawing.Point(297, 116);
+            this.paintBoard.Name = "paintBoard";
+            this.paintBoard.NumberOfCol = 15;
+            this.paintBoard.NumberOfRow = 13;
+            this.paintBoard.Size = new System.Drawing.Size(300, 260);
+            this.paintBoard.TabIndex = 25;
+            this.paintBoard.Text = "paintBoard1";
+            this.paintBoard.OnClickGrid += new PaintBoard.PaintBoard.ClickEventHandler(this.paintBoard_OnClickGrid);
         }
 
         //Exit
@@ -138,6 +143,17 @@ namespace BombermanMapEditor
         private void npc_Click(object sender, EventArgs e)
         {
             type = State.NPC;
+        }
+
+        //open
+        private void kkkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                LevelSerializor serializor = new LevelSerializor();
+                this.level = serializor.DeSerialize(ofd.OpenFile());
+            }
         }
     }
 }

@@ -73,7 +73,7 @@
             this.drop = new System.Windows.Forms.Label();
             this.slower = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.delete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.paintBoard = new PaintBoard.PaintBoard();
             this.menuStrip2.SuspendLayout();
@@ -111,35 +111,35 @@
             // kjkkToolStripMenuItem
             // 
             this.kjkkToolStripMenuItem.Name = "kjkkToolStripMenuItem";
-            this.kjkkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kjkkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.kjkkToolStripMenuItem.Text = "New";
             this.kjkkToolStripMenuItem.Click += new System.EventHandler(this.kjkkToolStripMenuItem_Click);
             // 
             // kkkToolStripMenuItem
             // 
             this.kkkToolStripMenuItem.Name = "kkkToolStripMenuItem";
-            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.kkkToolStripMenuItem.Text = "Open";
             this.kkkToolStripMenuItem.Click += new System.EventHandler(this.kkkToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -487,7 +487,7 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.delete,
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
@@ -495,13 +495,14 @@
             this.toolStrip1.TabIndex = 24;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // delete
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(23, 22);
+            this.delete.Text = "deleteTool";
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // toolStripButton2
             // 
@@ -578,7 +579,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton delete;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox triggerp;

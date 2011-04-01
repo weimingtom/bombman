@@ -17,16 +17,23 @@ namespace BombermanMapEditor
             return null;
         }
 
-        public void SetGrid(int row, int col, ref Grid grid, State gridState)
+        public void SetGrid(int row, int col, Grid grid)
         {
-            if (grid == null)
-            {
-                grid = new Grid(row, col);
-                this.grids.Add(grid);
-            }
-            grid.GridState = gridState;
+            DeleteGrid(row, col);
+            grids.Add(grid);
         }
-        
+
+        public void DeleteGrid(int row, int col)
+        {
+            Grid toDelete = null;
+            foreach (Grid current in grids)
+            {
+                if (current.Col == col && current.Row == row)
+                    toDelete = current;
+            }
+            grids.Remove(toDelete);
+        }
+
         public List<Grid> grids;
 
         public Level()

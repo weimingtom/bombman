@@ -15,6 +15,7 @@ namespace BombermanMapEditor
         private State type;
         private Level level;
         private string fileName;
+        private bool deleteClick;
 
 
         public MapEditor()
@@ -24,6 +25,7 @@ namespace BombermanMapEditor
             level = new Level();
             type = State.Empty;
             fileName = null;
+            deleteClick = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,11 +36,13 @@ namespace BombermanMapEditor
         private void uwall_Click(object sender, EventArgs e)
         {
             type = State.Uwall;
+            deleteClick = false;
         }
 
         private void dwall_Click(object sender, EventArgs e)
         {
             type = State.Dwall;
+            deleteClick = false;
         }
 
         private void paintBoard_OnClickGrid(object sender, PaintBoard.PaintBoard.ClickEventArgs e)
@@ -46,7 +50,21 @@ namespace BombermanMapEditor
             int x = e.Col;
             int y = e.Row;
             Grid currentGrid = level.GetGrid(y, x);
-            level.SetGrid(y, x, ref currentGrid, type);
+            if (currentGrid == null)
+            {
+                currentGrid = new Grid(y, x);
+            }
+
+            if (deleteClick)
+            {
+                level.DeleteGrid(y, x);
+            }
+            else
+            {
+                currentGrid.GridState = type;
+                level.SetGrid(y, x, currentGrid);
+            }
+            
             //Console.WriteLine(currentGrid.GridState);
         }
 
@@ -69,6 +87,7 @@ namespace BombermanMapEditor
             type = State.Empty;
             paintBoard.Visible = true;
             fileName = null;
+            deleteClick = false;
         }
 
         //Exit
@@ -136,11 +155,14 @@ namespace BombermanMapEditor
         private void player_Click(object sender, EventArgs e)
         {
             type = State.Player;
+            deleteClick = false;
         }
+
 
         private void npc_Click(object sender, EventArgs e)
         {
             type = State.NPC;
+            deleteClick = false;
         }
 
         //open
@@ -169,6 +191,12 @@ namespace BombermanMapEditor
                 LevelSerializor serializor = new LevelSerializor();
                 serializor.Serialize(this.level, currentStream);
             }
+        }
+
+        //delete tool
+        private void delete_Click(object sender, EventArgs e)
+        {
+            deleteClick = true;
         }
     }
 }

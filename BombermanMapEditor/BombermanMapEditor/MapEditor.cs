@@ -12,14 +12,18 @@ namespace BombermanMapEditor
 {
     public partial class MapEditor : Form
     {
-        private State type = State.Empty;
+        private State type;
         private Level level;
+        private string fileName;
+
 
         public MapEditor()
         {
             InitializeComponent();
             //level = new Level("");
             level = new Level();
+            type = State.Empty;
+            fileName = null;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,6 +58,7 @@ namespace BombermanMapEditor
             {
                 LevelSerializor serializor = new LevelSerializor();
                 serializor.Serialize(this.level, sfd.OpenFile());
+                fileName = sfd.FileName;
             }
         }
 
@@ -62,7 +67,8 @@ namespace BombermanMapEditor
         {
             level = new Level();
             type = State.Empty;
-            paintBoard.Visible = true;   
+            paintBoard.Visible = true;
+            fileName = null;
         }
 
         //Exit
@@ -146,7 +152,23 @@ namespace BombermanMapEditor
                 LevelSerializor serializor = new LevelSerializor();
                 this.level = serializor.DeSerialize(ofd.OpenFile());
             }
+
             //draw image
+        }
+
+        //save
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fileName == null)
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                FileStream currentStream = File.Open(fileName, FileMode.Open);
+                LevelSerializor serializor = new LevelSerializor();
+                serializor.Serialize(this.level, currentStream);
+            }
         }
     }
 }

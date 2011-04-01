@@ -75,6 +75,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.paintBoard = new PaintBoard.PaintBoard();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,34 +111,34 @@
             // kjkkToolStripMenuItem
             // 
             this.kjkkToolStripMenuItem.Name = "kjkkToolStripMenuItem";
-            this.kjkkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kjkkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.kjkkToolStripMenuItem.Text = "New";
             this.kjkkToolStripMenuItem.Click += new System.EventHandler(this.kjkkToolStripMenuItem_Click);
             // 
             // kkkToolStripMenuItem
             // 
             this.kkkToolStripMenuItem.Name = "kkkToolStripMenuItem";
-            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.kkkToolStripMenuItem.Text = "Open";
             this.kkkToolStripMenuItem.Click += new System.EventHandler(this.kkkToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -509,11 +510,23 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
+            // paintBoard
+            // 
+            this.paintBoard.Location = new System.Drawing.Point(289, 125);
+            this.paintBoard.Name = "paintBoard";
+            this.paintBoard.NumberOfCol = 15;
+            this.paintBoard.NumberOfRow = 13;
+            this.paintBoard.Size = new System.Drawing.Size(300, 260);
+            this.paintBoard.TabIndex = 25;
+            this.paintBoard.Text = "paintBoard1";
+            this.paintBoard.Visible = false;
+            // 
             // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 503);
+            this.Controls.Add(this.paintBoard);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -587,6 +600,7 @@
         private System.Windows.Forms.TextBox slowerp;
         private System.Windows.Forms.Label drop;
         private System.Windows.Forms.Label slower;
+        private PaintBoard.PaintBoard paintBoard;
     }
 }
 

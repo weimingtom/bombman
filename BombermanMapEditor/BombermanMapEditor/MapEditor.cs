@@ -21,11 +21,17 @@ namespace BombermanMapEditor
         public MapEditor()
         {
             InitializeComponent();
-            //level = new Level("");
+            //paintBoard.source = new PaintBoard.PaintBoard.ImageSourceDelegate(this.SourceImageCallback);
             level = new Level();
             type = State.Empty;
             fileName = null;
             deleteClick = false;
+        }
+
+        //set image for different types of grids
+        private Image SourceImageCallback(int row, int col)
+        {
+            return null;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -33,6 +39,7 @@ namespace BombermanMapEditor
 
         }
 
+        //click button
         private void uwall_Click(object sender, EventArgs e)
         {
             type = State.Uwall;
@@ -43,8 +50,22 @@ namespace BombermanMapEditor
         {
             type = State.Dwall;
             deleteClick = false;
+        } 
+        
+        private void player_Click(object sender, EventArgs e)
+        {
+            type = State.Player;
+            deleteClick = false;
         }
 
+
+        private void npc_Click(object sender, EventArgs e)
+        {
+            type = State.NPC;
+            deleteClick = false;
+        }
+
+        //click paintBoard
         private void paintBoard_OnClickGrid(object sender, PaintBoard.PaintBoard.ClickEventArgs e)
         {
             int x = e.Col;
@@ -68,6 +89,29 @@ namespace BombermanMapEditor
             //Console.WriteLine(currentGrid.GridState);
         }
 
+        // New
+        private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            level = new Level();
+            type = State.Empty;
+            paintBoard.Visible = true;
+            fileName = null;
+            deleteClick = false;
+        }
+
+        //open
+        private void kkkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                LevelSerializor serializor = new LevelSerializor();
+                this.level = serializor.DeSerialize(ofd.OpenFile());
+            }
+
+            //draw image
+        }
+
         //Save as
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -79,23 +123,29 @@ namespace BombermanMapEditor
                 fileName = sfd.FileName;
             }
         }
-
-        // New
-        private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        //save
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            level = new Level();
-            type = State.Empty;
-            paintBoard.Visible = true;
-            fileName = null;
-            deleteClick = false;
+            if (fileName == null)
+            {
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                FileStream currentStream = File.Open(fileName, FileMode.Open);
+                LevelSerializor serializor = new LevelSerializor();
+                serializor.Serialize(this.level, currentStream);
+            }
         }
-
+        
         //Exit
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //set bonus/malus percentage
         private void addbombp_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)(sender);
@@ -150,47 +200,6 @@ namespace BombermanMapEditor
             int value = int.Parse(tb.Text);
             if (value >= 0 && value <= 100)
                 level.DropP = value;
-        }
-
-        private void player_Click(object sender, EventArgs e)
-        {
-            type = State.Player;
-            deleteClick = false;
-        }
-
-
-        private void npc_Click(object sender, EventArgs e)
-        {
-            type = State.NPC;
-            deleteClick = false;
-        }
-
-        //open
-        private void kkkToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                LevelSerializor serializor = new LevelSerializor();
-                this.level = serializor.DeSerialize(ofd.OpenFile());
-            }
-
-            //draw image
-        }
-
-        //save
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (fileName == null)
-            {
-                saveAsToolStripMenuItem_Click(sender, e);
-            }
-            else
-            {
-                FileStream currentStream = File.Open(fileName, FileMode.Open);
-                LevelSerializor serializor = new LevelSerializor();
-                serializor.Serialize(this.level, currentStream);
-            }
         }
 
         //delete tool

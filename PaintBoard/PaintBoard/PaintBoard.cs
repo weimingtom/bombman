@@ -26,6 +26,7 @@ namespace PaintBoard
         public delegate void ClickEventHandler(object sender, ClickEventArgs e);
         public event ClickEventHandler OnClickGrid;
 
+
         public class ClickEventArgs : EventArgs
         {
             public int Row
@@ -60,6 +61,9 @@ namespace PaintBoard
             NumberOfCol = 15;
         }
 
+        public delegate Image ImageSourceDelegate(int row, int col);
+        public ImageSourceDelegate source;
+
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
@@ -78,6 +82,17 @@ namespace PaintBoard
                 Point beginV = new Point(sideLength* j, 0);
                 Point endV = new Point(sideLength* j, this.Height);
                 pe.Graphics.DrawLine(bp, beginV, endV);
+            }
+
+            for (int i = 0; i < NumberOfRow; ++i)
+            {
+                for (int j = 0; j < NumberOfCol; ++j)
+                {
+                    if (source != null)
+                    {
+                        //draw image
+                    }
+                }
             }
         }
 
@@ -100,11 +115,5 @@ namespace PaintBoard
                 OnClickGrid(this, ea);
             }
         }
-
-        private void SetGridInfo()
-        {
-
-        }
-
     }
 }

@@ -12,12 +12,15 @@ namespace BombermanMapEditor
         {
             XmlSerializer formatter = new XmlSerializer(typeof(Level));
             formatter.Serialize(stream, level);
+            stream.Close();
         }
 
         public Level DeSerialize(Stream stream)
         {
             XmlSerializer formatter = new XmlSerializer(typeof(Level));
-            return (Level)formatter.Deserialize(stream);
+            Level level = (Level)formatter.Deserialize(stream);
+            stream.Close();
+            return level;
         }
     }
 }

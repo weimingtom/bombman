@@ -7,6 +7,7 @@ namespace BombermanMapEditor
 {
     public class Level
     {
+        //check if inquiring gird exists,if true return the grid
         public Grid GetGrid(int row, int col)
         {
             foreach (Grid current in grids)
@@ -17,12 +18,14 @@ namespace BombermanMapEditor
             return null;
         }
 
+        //reset grid's info
         public void SetGrid(int row, int col, Grid grid)
         {
             DeleteGrid(row, col);
             grids.Add(grid);
         }
 
+        //remove grid from list
         public void DeleteGrid(int row, int col)
         {
             Grid toDelete = null;

@@ -92,7 +92,7 @@
             this.toolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(692, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(739, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -491,7 +491,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(692, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(739, 25);
             this.toolStrip1.TabIndex = 24;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -514,11 +514,11 @@
             // 
             // paintBoard
             // 
-            this.paintBoard.Location = new System.Drawing.Point(289, 125);
+            this.paintBoard.Location = new System.Drawing.Point(249, 91);
             this.paintBoard.Name = "paintBoard";
             this.paintBoard.NumberOfCol = 15;
             this.paintBoard.NumberOfRow = 13;
-            this.paintBoard.Size = new System.Drawing.Size(300, 260);
+            this.paintBoard.Size = new System.Drawing.Size(450, 390);
             this.paintBoard.TabIndex = 25;
             this.paintBoard.Text = "paintBoard1";
             this.paintBoard.Visible = false;
@@ -528,7 +528,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 503);
+            this.ClientSize = new System.Drawing.Size(739, 528);
             this.Controls.Add(this.paintBoard);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox4);

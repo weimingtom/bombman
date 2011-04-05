@@ -105,8 +105,10 @@ namespace PaintBoard
             int x = e.X;
             int y = e.Y;
 
-            int row = y / 20;
-            int col = x / 20;
+            int sideLengh = this.Height/this.NumberOfRow;
+
+            int row = y / sideLengh ;
+            int col = x / sideLengh;
 
             ClickEventArgs ea = new ClickEventArgs();
             ea.Row = row;

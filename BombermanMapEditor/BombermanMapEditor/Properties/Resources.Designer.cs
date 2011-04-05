@@ -59,26 +59,5 @@ namespace BombermanMapEditor.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap dwall {
-            get {
-                object obj = ResourceManager.GetObject("dwall", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap player {
-            get {
-                object obj = ResourceManager.GetObject("player", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap uwall {
-            get {
-                object obj = ResourceManager.GetObject("uwall", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

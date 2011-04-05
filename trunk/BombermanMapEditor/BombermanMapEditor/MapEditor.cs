@@ -233,8 +233,14 @@ namespace BombermanMapEditor
                 level.DropP = value;
         }
 
-        //delete tool
+        //delete toolbutton
         private void delete_Click(object sender, EventArgs e)
+        {
+            deleteClick = true;
+        }
+        
+        //delete toolmenu
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteClick = true;
         }

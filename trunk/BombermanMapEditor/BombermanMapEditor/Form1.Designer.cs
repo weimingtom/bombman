@@ -36,13 +36,10 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jhjjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uwall = new System.Windows.Forms.Button();
             this.dwall = new System.Windows.Forms.Button();
             this.player = new System.Windows.Forms.Button();
             this.npc = new System.Windows.Forms.Button();
@@ -73,9 +70,10 @@
             this.drop = new System.Windows.Forms.Label();
             this.slower = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.delete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.paintBoard = new PaintBoard.PaintBoard();
+            this.delete = new System.Windows.Forms.ToolStripButton();
+            this.uwall = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -146,30 +144,17 @@
             // jhjjToolStripMenuItem
             // 
             this.jhjjToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.jhjjToolStripMenuItem.Name = "jhjjToolStripMenuItem";
             this.jhjjToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.jhjjToolStripMenuItem.Text = "Edit";
             // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -191,16 +176,6 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // uwall
-            // 
-            this.uwall.Location = new System.Drawing.Point(15, 24);
-            this.uwall.Name = "uwall";
-            this.uwall.Size = new System.Drawing.Size(75, 23);
-            this.uwall.TabIndex = 3;
-            this.uwall.Text = "U-Wall";
-            this.uwall.UseVisualStyleBackColor = true;
-            this.uwall.Click += new System.EventHandler(this.uwall_Click);
             // 
             // dwall
             // 
@@ -495,15 +470,6 @@
             this.toolStrip1.TabIndex = 24;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // delete
-            // 
-            this.delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(23, 22);
-            this.delete.Text = "deleteTool";
-            this.delete.Click += new System.EventHandler(this.delete_Click);
-            // 
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -523,6 +489,26 @@
             this.paintBoard.Text = "paintBoard1";
             this.paintBoard.Visible = false;
             this.paintBoard.OnClickGrid += new PaintBoard.PaintBoard.ClickEventHandler(this.paintBoard_OnClickGrid);
+            // 
+            // delete
+            // 
+            this.delete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.delete.Image = global::BombermanMapEditor.Properties.Resources.deletebutton;
+            this.delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(23, 22);
+            this.delete.Text = "deleteTool";
+            this.delete.Click += new System.EventHandler(this.delete_Click);
+            // 
+            // uwall
+            // 
+            this.uwall.Location = new System.Drawing.Point(15, 24);
+            this.uwall.Name = "uwall";
+            this.uwall.Size = new System.Drawing.Size(75, 23);
+            this.uwall.TabIndex = 3;
+            this.uwall.Text = "U-Wall";
+            this.uwall.UseVisualStyleBackColor = true;
+            this.uwall.Click += new System.EventHandler(this.uwall_Click);
             // 
             // MapEditor
             // 
@@ -565,8 +551,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

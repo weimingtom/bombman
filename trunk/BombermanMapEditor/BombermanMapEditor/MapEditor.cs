@@ -19,10 +19,8 @@ namespace BombermanMapEditor
         private bool deleteClick;
         private ResourceManager resMan;
 
-
-        public MapEditor()
+        private void init()
         {
-            InitializeComponent();
             paintBoard.source = new PaintBoard.PaintBoard.ImageSourceDelegate(this.SourceImageCallback);
             level = new Level();
             type = State.Empty;
@@ -31,28 +29,36 @@ namespace BombermanMapEditor
             resMan = new ResourceManager(typeof(MapEditor));
         }
 
+
+        public MapEditor()
+        {
+            InitializeComponent();
+        }
+
         //set image for different types of grids
         private Image SourceImageCallback(int row, int col)
         {
             Grid currentGrid = level.GetGrid(row, col);
             if (currentGrid == null) return null;
             Image sourceImage = null;
-            Image icon;
+            Image icon = null;
             switch (currentGrid.GridState)
             {
                 case State.Uwall:
                     sourceImage = (Image)resMan.GetObject("uwall");
                     break;
                 case State.Dwall:
-                    sourceImage = (Image)resMan.GetObject("dwall");
+                    sourceImage = (Image)resMan.GetObject("wall");
                     break;
                 case State.Player:
-                    sourceImage = (Image)resMan.GetObject("player");
+                    sourceImage = (Image)resMan.GetObject("bombman");
                     break;
                 case State.NPC:
+                    sourceImage = (Image)resMan.GetObject("npc");
                     break;
             }
-            icon = new Bitmap(sourceImage, paintBoard.Width/paintBoard.NumberOfCol, paintBoard.Height/paintBoard.NumberOfRow);
+            if(sourceImage != null)
+                icon = new Bitmap(sourceImage, paintBoard.Width/paintBoard.NumberOfCol, paintBoard.Height/paintBoard.NumberOfRow);
             return icon;
         }
 
@@ -96,6 +102,7 @@ namespace BombermanMapEditor
             if (currentGrid == null)
             {
                 currentGrid = new Grid(y, x);
+                level.grids.Add(currentGrid);
             }
 
             if (deleteClick)
@@ -114,11 +121,9 @@ namespace BombermanMapEditor
         // New
         private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            level = new Level();
-            type = State.Empty;
+            init();
             paintBoard.Visible = true;
-            fileName = null;
-            deleteClick = false;
+            paintBoard.Invalidate();
         }
 
         //open

@@ -89,7 +89,7 @@
             this.toolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(739, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(739, 25);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -102,41 +102,41 @@
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.njkkiToolStripMenuItem.Name = "njkkiToolStripMenuItem";
-            this.njkkiToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.njkkiToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.njkkiToolStripMenuItem.Text = "File";
             // 
             // kjkkToolStripMenuItem
             // 
             this.kjkkToolStripMenuItem.Name = "kjkkToolStripMenuItem";
-            this.kjkkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.kjkkToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.kjkkToolStripMenuItem.Text = "New";
             this.kjkkToolStripMenuItem.Click += new System.EventHandler(this.kjkkToolStripMenuItem_Click);
             // 
             // kkkToolStripMenuItem
             // 
             this.kkkToolStripMenuItem.Name = "kkkToolStripMenuItem";
-            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.kkkToolStripMenuItem.Text = "Open";
             this.kkkToolStripMenuItem.Click += new System.EventHandler(this.kkkToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -145,13 +145,13 @@
             this.jhjjToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem});
             this.jhjjToolStripMenuItem.Name = "jhjjToolStripMenuItem";
-            this.jhjjToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.jhjjToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
             this.jhjjToolStripMenuItem.Text = "Edit";
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -160,13 +160,13 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(41, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(47, 21);
             this.toolStripMenuItem1.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -467,7 +467,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.delete,
             this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(739, 25);
             this.toolStrip1.TabIndex = 24;
@@ -507,6 +507,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(739, 528);
             this.Controls.Add(this.paintBoard);
             this.Controls.Add(this.toolStrip1);
@@ -517,6 +518,7 @@
             this.Controls.Add(this.menuStrip2);
             this.Name = "MapEditor";
             this.Text = "Bomberman Map Editor";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();

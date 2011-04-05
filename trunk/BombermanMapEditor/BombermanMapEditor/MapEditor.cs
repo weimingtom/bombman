@@ -22,9 +22,9 @@ namespace BombermanMapEditor
         private void init()
         {
             paintBoard.source = new PaintBoard.PaintBoard.ImageSourceDelegate(this.SourceImageCallback);
-            level = new Level();
+            //level = new Level();
             type = State.Empty;
-            fileName = null;
+            //fileName = null;
             deleteClick = false;
             resMan = new ResourceManager(typeof(MapEditor));
         }
@@ -122,6 +122,8 @@ namespace BombermanMapEditor
         private void kjkkToolStripMenuItem_Click(object sender, EventArgs e)
         {
             init();
+            level = new Level();
+            fileName = null;
             paintBoard.Visible = true;
             paintBoard.Invalidate();
         }
@@ -135,8 +137,10 @@ namespace BombermanMapEditor
                 LevelSerializor serializor = new LevelSerializor();
                 this.level = serializor.DeSerialize(ofd.OpenFile());
             }
-
-            //draw image
+            init();
+            fileName = ofd.FileName;
+            paintBoard.Visible = true;
+            paintBoard.Invalidate();
         }
 
         //Save as

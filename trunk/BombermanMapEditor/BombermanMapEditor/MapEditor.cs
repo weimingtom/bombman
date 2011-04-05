@@ -244,5 +244,12 @@ namespace BombermanMapEditor
         {
             deleteClick = true;
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            about about = new about();
+            about.ShowDialog();
+            //about.Dispose();
+        }
     }
 }

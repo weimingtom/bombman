@@ -38,12 +38,12 @@
             this.jhjjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dwall = new System.Windows.Forms.Button();
             this.player = new System.Windows.Forms.Button();
             this.npc = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uwall = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -73,7 +73,6 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.paintBoard = new PaintBoard.PaintBoard();
             this.delete = new System.Windows.Forms.ToolStripButton();
-            this.uwall = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -152,30 +151,24 @@
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.helpToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(41, 20);
             this.toolStripMenuItem1.Text = "Help";
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // dwall
             // 
@@ -217,6 +210,16 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Wall";
+            // 
+            // uwall
+            // 
+            this.uwall.Location = new System.Drawing.Point(15, 24);
+            this.uwall.Name = "uwall";
+            this.uwall.Size = new System.Drawing.Size(75, 23);
+            this.uwall.TabIndex = 3;
+            this.uwall.Text = "U-Wall";
+            this.uwall.UseVisualStyleBackColor = true;
+            this.uwall.Click += new System.EventHandler(this.uwall_Click);
             // 
             // groupBox2
             // 
@@ -500,16 +503,6 @@
             this.delete.Text = "deleteTool";
             this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
-            // uwall
-            // 
-            this.uwall.Location = new System.Drawing.Point(15, 24);
-            this.uwall.Name = "uwall";
-            this.uwall.Size = new System.Drawing.Size(75, 23);
-            this.uwall.TabIndex = 3;
-            this.uwall.Text = "U-Wall";
-            this.uwall.UseVisualStyleBackColor = true;
-            this.uwall.Click += new System.EventHandler(this.uwall_Click);
-            // 
             // MapEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -552,7 +545,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Button uwall;
         private System.Windows.Forms.Button dwall;

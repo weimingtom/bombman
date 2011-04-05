@@ -90,7 +90,11 @@ namespace PaintBoard
                 {
                     if (source != null)
                     {
-                        //draw image
+                        Image image = source(i, j);
+                        if (image != null)
+                        {
+                            pe.Graphics.DrawImage(image, j * sideLength, i * sideLength, sideLength, sideLength);
+                        }
                     }
                 }
             }
@@ -114,6 +118,7 @@ namespace PaintBoard
             {
                 OnClickGrid(this, ea);
             }
+            this.Invalidate();
         }
     }
 }

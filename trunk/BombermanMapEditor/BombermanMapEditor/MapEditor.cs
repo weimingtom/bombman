@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Resources;
 
 namespace BombermanMapEditor
 {
@@ -16,22 +17,43 @@ namespace BombermanMapEditor
         private Level level;
         private string fileName;
         private bool deleteClick;
+        private ResourceManager resMan;
 
 
         public MapEditor()
         {
             InitializeComponent();
-            //paintBoard.source = new PaintBoard.PaintBoard.ImageSourceDelegate(this.SourceImageCallback);
+            paintBoard.source = new PaintBoard.PaintBoard.ImageSourceDelegate(this.SourceImageCallback);
             level = new Level();
             type = State.Empty;
             fileName = null;
             deleteClick = false;
+            resMan = new ResourceManager(typeof(MapEditor));
         }
 
         //set image for different types of grids
         private Image SourceImageCallback(int row, int col)
         {
-            return null;
+            Grid currentGrid = level.GetGrid(row, col);
+            if (currentGrid == null) return null;
+            Image sourceImage = null;
+            Image icon;
+            switch (currentGrid.GridState)
+            {
+                case State.Uwall:
+                    sourceImage = (Image)resMan.GetObject("uwall");
+                    break;
+                case State.Dwall:
+                    sourceImage = (Image)resMan.GetObject("dwall");
+                    break;
+                case State.Player:
+                    sourceImage = (Image)resMan.GetObject("player");
+                    break;
+                case State.NPC:
+                    break;
+            }
+            icon = new Bitmap(sourceImage, paintBoard.Width/paintBoard.NumberOfCol, paintBoard.Height/paintBoard.NumberOfRow);
+            return icon;
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -95,12 +95,9 @@ void GlWindow::Destroy()
 
 	DestroyWindow(hWnd);
 
-	// if we're in fullscreen, get out of it
 	EndFullScreen();
 }
 
-// PaletteChanged()
-// desc: palette has changed
 void GlWindow::PaletteChanged(WPARAM wParam)
 {
 	if (hGLRC && hPalette && (HWND)wParam != hWnd)
@@ -112,8 +109,6 @@ void GlWindow::PaletteChanged(WPARAM wParam)
 	}
 }
 
-// QueryNewPalette()
-// desc: query a new palette
 BOOL GlWindow::QueryNewPalette()
 {
 	if (hGLRC && hPalette)
@@ -128,8 +123,6 @@ BOOL GlWindow::QueryNewPalette()
 	return FALSE;
 }
 
-// Paint()
-// desc: window paint
 void GlWindow::Paint()
 {
 	PAINTSTRUCT ps;
@@ -140,8 +133,6 @@ void GlWindow::Paint()
 	EndPaint(hWnd, &ps);
 }
 
-// Size()
-// desc: window resizing
 void GlWindow::Size()
 {
 	if (width > height)
@@ -166,36 +157,27 @@ void GlWindow::Size()
 	}
 }
 
-// GetPosX()
-// desc: get mouse X normalized pos3D
 float GlWindow::GetNormalizedPosX(LPARAM lParam)
 {	
 	return mouseSensitivity * (float)((short)LOWORD(lParam) - width/2) / aspect;
 }
 
-// GetPosY()
-// desc: get mouse Y normalized pos3D
 float GlWindow::GetNormalizedPosY(LPARAM lParam)
 {
 	return mouseSensitivity * (float)((short)HIWORD(lParam) - height/2) / aspect;
 }
 
-// GetMouseX()
-// desc: get mouse cursor pos3D in window
 int GlWindow::GetMouseX(LPARAM lParam)
 {
 	return LOWORD(lParam);
 }
 
-// GetMouseY()
-// desc: get mouse cursor pos3D in window
 int GlWindow::GetMouseY(LPARAM lParam)
 {
 	return HIWORD(lParam);
 }
 
-// WndProcOGL()
-// desc: the WndProc for the OpenGL window
+
 LRESULT APIENTRY WndProcOGL(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	GlWindow *glWindow = (GlWindow*)GetWindowLong(hWnd, GWL_USERDATA);
@@ -366,8 +348,6 @@ LRESULT APIENTRY WndProcOGL(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);
 }
 
-// RegisterWindow()
-// desc: register the window class
 bool GlWindow::RegisterWindow(HINSTANCE hInst)
 {
 	WNDCLASS windowClass;		// the window class
@@ -390,9 +370,6 @@ bool GlWindow::RegisterWindow(HINSTANCE hInst)
 	return true;
 }
 
-// BeginFullScreen()
-// desc: go to full screen widthXheight resolution
-//	    and save original state
 void GlWindow::BeginFullScreen(int width, int height, int bits)
 {
 	// Save current display state
@@ -410,14 +387,11 @@ void GlWindow::BeginFullScreen(int width, int height, int bits)
 	ChangeDisplaySettings(&dm, CDS_FULLSCREEN);
 }
 
-// EndFullScreen()
-// desc: return to desktop at original resolution
 void GlWindow::EndFullScreen()
 {
 	ChangeDisplaySettings(NULL, 0);
 }
 
-// constructor
 GlWindow::GlWindow(const TCHAR* szName, bool fscreen, int w, int h, int b)
 {
 	RECT windowRect;
@@ -487,7 +461,6 @@ GlWindow::GlWindow(const TCHAR* szName, bool fscreen, int w, int h, int b)
 	ShowCursor(FALSE);
 }
 
-// destructor
 GlWindow::~GlWindow()
 {
 //	inputSystem->Shutdown();

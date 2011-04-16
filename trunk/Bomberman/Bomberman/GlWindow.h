@@ -10,15 +10,54 @@ class Scene;
 
 class GlWindow
 {
+public:
+	GlWindow() {}
+	GlWindow(const TCHAR* szName, bool fscreen, int w, int h, int b);
+	virtual ~GlWindow();
+
+	static bool RegisterWindow(HINSTANCE hInst);
+
 protected:
 	HWND		hWnd;	// window handle
 	HDC		hDC;		// device context
 	HPALETTE	hPalette;	// palette
 	HGLRC	hGLRC;	// rendering context
 
+	virtual bool OnCreate() { return true; }
+	virtual bool OnClose() { return true; }
+	virtual void OnSize() { }
+	virtual void OnMouseDownL(float x, float y) { }
+	virtual void OnMouseDownR(float x, float y) { }
+	virtual void OnMouseUpL() { }
+	virtual void OnMouseUpR() { }
+	virtual void OnMouseMove(int x, int y, int centerX, int centerY) { }
+	virtual void OnMouseMove(int deltaX, int deltaY) { }
+	virtual void OnMouseDragL(int x, int y, int dx, int dy) { }
+	virtual void OnMouseDragR(int x, int y, int dx, int dy) { }
+	virtual void OnCommand(WORD wNotifyCode, WORD wID, HWND hWndCtrl) { }
+	virtual void OnContextMenu(HWND hWnd, int x, int y) { }
+	virtual void OnKeyUp(int nVirtKey) { }
+	virtual void OnInitMenu(HMENU hMenu) { }
+	virtual void OnKeyDown(int nVirtKey) { }
+	virtual void OnChar(char c) { }
+
 private:
+	int width;
+	int height;
+	int centerX;
+	int centerY;
+	int bits;
+	int aspect;
+	int mouseX;
+	int mouseY;
+	bool fullscreen;
+
+	float mouseSensitivity;
+	bool useDInput;
+
+	InputSystem *inputSystem;
 	Scene* currentScene;
-	// the WndProc
+
 	friend LRESULT APIENTRY WndProcOGL(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 	void SetupPixelFormat();		// setup the pixel format
@@ -44,46 +83,4 @@ private:
 	void BeginFullScreen(int w, int h, int b);
 	void EndFullScreen();
 	int InitGL(GLvoid);
-public:
-	int width;
-	int height;
-	int centerX;
-	int centerY;
-	int bits;
-	int aspect;
-	int mouseX;
-	int mouseY;
-	bool fullscreen;
-
-	float mouseSensitivity;
-
-	bool useDInput;	// true if dinput is enabled
-	InputSystem *inputSystem;
-
-protected:
-	virtual bool OnCreate() { return true; }
-	virtual bool OnClose() { return true; }
-	virtual void OnSize() { }
-	virtual void OnMouseDownL(float x, float y) { }
-	virtual void OnMouseDownR(float x, float y) { }
-	virtual void OnMouseUpL() { }
-	virtual void OnMouseUpR() { }
-	virtual void OnMouseMove(int x, int y, int centerX, int centerY) { }
-	virtual void OnMouseMove(int deltaX, int deltaY) { }
-	virtual void OnMouseDragL(int x, int y, int dx, int dy) { }
-	virtual void OnMouseDragR(int x, int y, int dx, int dy) { }
-	virtual void OnCommand(WORD wNotifyCode, WORD wID, HWND hWndCtrl) { }
-	virtual void OnContextMenu(HWND hWnd, int x, int y) { }
-	virtual void OnKeyUp(int nVirtKey) { }
-	virtual void OnInitMenu(HMENU hMenu) { }
-	virtual void OnKeyDown(int nVirtKey) { }
-	virtual void OnChar(char c) { }
-
-public:
-	GlWindow() {}
-	GlWindow(const TCHAR* szName, bool fscreen, int w, int h, int b);
-	virtual ~GlWindow();
-
-	// this must be called before the class is used
-	static bool RegisterWindow(HINSTANCE hInst);
 };

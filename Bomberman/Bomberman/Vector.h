@@ -6,7 +6,7 @@
 
 typedef float scalar_t;
 
-class CVector
+class Vector
 {
 public:
      scalar_t x;
@@ -14,8 +14,8 @@ public:
      scalar_t z;    // x,y,z coordinates
 
 public:
-     CVector(scalar_t a = 0, scalar_t b = 0, scalar_t c = 0) : x(a), y(b), z(c) {}
-     CVector(const CVector &vec) : x(vec.x), y(vec.y), z(vec.z) {}
+     Vector(scalar_t a = 0, scalar_t b = 0, scalar_t c = 0) : x(a), y(b), z(c) {}
+     Vector(const Vector &vec) : x(vec.x), y(vec.y), z(vec.z) {}
 
 	// vector index
 	scalar_t &operator[](const long idx)
@@ -24,7 +24,7 @@ public:
 	}
 
      // vector assignment
-     const CVector &operator=(const CVector &vec)
+     const Vector &operator=(const Vector &vec)
      {
           x = vec.x;
           y = vec.y;
@@ -34,31 +34,31 @@ public:
      }
 
      // vecector equality
-     const bool operator==(const CVector &vec) const
+     const bool operator==(const Vector &vec) const
      {
           return ((x == vec.x) && (y == vec.y) && (z == vec.z));
      }
 
      // vecector inequality
-     const bool operator!=(const CVector &vec) const
+     const bool operator!=(const Vector &vec) const
      {
           return !(*this == vec);
      }
 
      // vector add
-     const CVector operator+(const CVector &vec) const
+     const Vector operator+(const Vector &vec) const
      {
-          return CVector(x + vec.x, y + vec.y, z + vec.z);
+          return Vector(x + vec.x, y + vec.y, z + vec.z);
      }
 
      // vector add (opposite of negation)
-     const CVector operator+() const
+     const Vector operator+() const
      {    
-          return CVector(*this);
+          return Vector(*this);
      }
 
      // vector increment
-     const CVector& operator+=(const CVector& vec)
+     const Vector& operator+=(const Vector& vec)
      {    x += vec.x;
           y += vec.y;
           z += vec.z;
@@ -66,19 +66,19 @@ public:
      }
 
      // vector subtraction
-     const CVector operator-(const CVector& vec) const
+     const Vector operator-(const Vector& vec) const
      {    
-          return CVector(x - vec.x, y - vec.y, z - vec.z);
+          return Vector(x - vec.x, y - vec.y, z - vec.z);
      }
      
      // vector negation
-     const CVector operator-() const
+     const Vector operator-() const
      {    
-          return CVector(-x, -y, -z);
+          return Vector(-x, -y, -z);
      }
 
      // vector decrement
-     const CVector &operator-=(const CVector& vec)
+     const Vector &operator-=(const Vector& vec)
      {
           x -= vec.x;
           y -= vec.y;
@@ -88,7 +88,7 @@ public:
      }
 
      // scalar self-multiply
-     const CVector &operator*=(const scalar_t &s)
+     const Vector &operator*=(const scalar_t &s)
      {
           x *= s;
           y *= s;
@@ -98,7 +98,7 @@ public:
      }
 
      // scalar self-divecide
-     const CVector &operator/=(const scalar_t &s)
+     const Vector &operator/=(const scalar_t &s)
      {
           const float recip = 1/s; // for speed, one divecision
 
@@ -110,56 +110,56 @@ public:
      }
 
      // post multiply by scalar
-     const CVector operator*(const scalar_t &s) const
+     const Vector operator*(const scalar_t &s) const
      {
-          return CVector(x*s, y*s, z*s);
+          return Vector(x*s, y*s, z*s);
      }
 
      // pre multiply by scalar
-     friend inline const CVector operator*(const scalar_t &s, const CVector &vec)
+     friend inline const Vector operator*(const scalar_t &s, const Vector &vec)
      {
           return vec*s;
      }
 
-	const CVector operator*(const CVector& vec) const
+	const Vector operator*(const Vector& vec) const
 	{
-		return CVector(x*vec.x, y*vec.y, z*vec.z);
+		return Vector(x*vec.x, y*vec.y, z*vec.z);
 	}
 
 	// post multiply by scalar
-     /*friend inline const CVector operator*(const CVector &vec, const scalar_t &s)
+     /*friend inline const Vector operator*(const Vector &vec, const scalar_t &s)
      {
-          return CVector(vec.x*s, vec.y*s, vec.z*s);
+          return Vector(vec.x*s, vec.y*s, vec.z*s);
      }*/
 
     // divide by scalar
-     const CVector operator/(scalar_t s) const
+     const Vector operator/(scalar_t s) const
      {
           s = 1/s;
 
-          return CVector(s*x, s*y, s*z);
+          return Vector(s*x, s*y, s*z);
      }
 
      // cross product
-     const CVector CrossProduct(const CVector &vec) const
+     const Vector CrossProduct(const Vector &vec) const
      {
-          return CVector(y*vec.z - z*vec.y, z*vec.x - x*vec.z, x*vec.y - y*vec.x);
+          return Vector(y*vec.z - z*vec.y, z*vec.x - x*vec.z, x*vec.y - y*vec.x);
      }
 
      // cross product
-     const CVector operator^(const CVector &vec) const
+     const Vector operator^(const Vector &vec) const
      {
-          return CVector(y*vec.z - z*vec.y, z*vec.x - x*vec.z, x*vec.y - y*vec.x);
+          return Vector(y*vec.z - z*vec.y, z*vec.x - x*vec.z, x*vec.y - y*vec.x);
      }
 
      // dot product
-     const scalar_t DotProduct(const CVector &vec) const
+     const scalar_t DotProduct(const Vector &vec) const
      {
           return x*vec.x + y*vec.x + z*vec.z;
      }
 
      // dot product
-     const scalar_t operator%(const CVector &vec) const
+     const scalar_t operator%(const Vector &vec) const
      {
           return x*vec.x + y*vec.x + z*vec.z;
      }
@@ -171,7 +171,7 @@ public:
      }
 
      // return the unit vector
-     const CVector UnitVector() const
+     const Vector UnitVector() const
      {
           return (*this) / Length();
      }
@@ -188,37 +188,37 @@ public:
      }
 
      // return vector with specified length
-     const CVector operator | (const scalar_t length) const
+     const Vector operator | (const scalar_t length) const
      {
           return *this * (length / !(*this));
      }
 
      // set length of vector equal to length
-     const CVector& operator |= (const float length)
+     const Vector& operator |= (const float length)
      {
           return *this = *this | length;
      }
 
      // return angle between two vectors
-     const float inline Angle(const CVector& normal) const
+     const float inline Angle(const Vector& normal) const
      {
           return acosf(*this % normal);
      }
 
      // reflect this vector off surface with normal vector
-     const CVector inline Reflection(const CVector& normal) const
+     const Vector inline Reflection(const Vector& normal) const
      {    
-          const CVector vec(*this | 1);     // normalize this vector
+          const Vector vec(*this | 1);     // normalize this vector
           return (vec - normal * 2.0 * (vec % normal)) * !*this;
      }
 
 	// rotate angle degrees about a normal
-	const CVector inline Rotate(const float angle, const CVector& normal) const
+	const Vector inline Rotate(const float angle, const Vector& normal) const
 	{	
 		const float cosine = cosf(angle);
 		const float sine = sinf(angle);
 
-		return CVector(*this * cosine + ((normal * *this) * (1.0f - cosine)) *
+		return Vector(*this * cosine + ((normal * *this) * (1.0f - cosine)) *
 			          normal + (*this ^ normal) * sine);
 	}
 };

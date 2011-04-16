@@ -5,8 +5,6 @@
 #include <gl/glaux.h>		// Header File For The Glaux Library
 #include <gl/glut.h>
 
-
-
 class InputSystem;
 class Scene;
 

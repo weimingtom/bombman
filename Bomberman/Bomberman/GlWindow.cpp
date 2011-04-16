@@ -167,28 +167,28 @@ void GlWindow::Size()
 }
 
 // GetPosX()
-// desc: get mouse X normalized position
+// desc: get mouse X normalized pos3D
 float GlWindow::GetNormalizedPosX(LPARAM lParam)
 {	
 	return mouseSensitivity * (float)((short)LOWORD(lParam) - width/2) / aspect;
 }
 
 // GetPosY()
-// desc: get mouse Y normalized position
+// desc: get mouse Y normalized pos3D
 float GlWindow::GetNormalizedPosY(LPARAM lParam)
 {
 	return mouseSensitivity * (float)((short)HIWORD(lParam) - height/2) / aspect;
 }
 
 // GetMouseX()
-// desc: get mouse cursor position in window
+// desc: get mouse cursor pos3D in window
 int GlWindow::GetMouseX(LPARAM lParam)
 {
 	return LOWORD(lParam);
 }
 
 // GetMouseY()
-// desc: get mouse cursor position in window
+// desc: get mouse cursor pos3D in window
 int GlWindow::GetMouseY(LPARAM lParam)
 {
 	return HIWORD(lParam);

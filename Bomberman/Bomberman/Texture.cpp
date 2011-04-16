@@ -31,7 +31,7 @@ void Texture::DisplayTexture(GLdouble width,GLdouble height,GLdouble x,GLdouble 
 	//glRotatef(3.0f,0.0f,1.0f,0.0f);
 	//glScalef(10.0f,1.0f,1.f);
 	glRasterPos2d(x,y);
-	glDrawPixels(textureImage->sizeX,textureImage->sizeY,GL_RGB,GL_UNSIGNED_BYTE,textureImage->data);
+	//glRenderPixels(textureImage->sizeX,textureImage->sizeY,GL_RGB,GL_UNSIGNED_BYTE,textureImage->data);
 	glPopMatrix();										// Restore The Old Projection Matrix
 }
 

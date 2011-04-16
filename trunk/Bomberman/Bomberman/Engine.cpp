@@ -36,10 +36,6 @@ void Engine::GameCycle(float deltaTime)
 	
 }
 
-void Engine::OnPrepare()
-{
-}
-
 Scene* Engine::OnGetScene()
 {
 	return NULL;

@@ -54,7 +54,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;GlAux.lib;glut.lib;glut32.lib;GLU32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;GlAux.lib;glut.lib;glut32.lib;GLU32.lib;Dxguid.lib;Dinput8.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,8 +83,10 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GlWindow.h" />
     <ClInclude Include="InputSystem.h" />
+    <ClInclude Include="Keyboard.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MenuScene.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Texture.h" />
@@ -95,8 +97,10 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GlWindow.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuScene.cpp" />
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Texture.cpp" />

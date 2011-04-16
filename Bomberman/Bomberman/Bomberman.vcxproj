@@ -88,6 +88,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
@@ -99,6 +100,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

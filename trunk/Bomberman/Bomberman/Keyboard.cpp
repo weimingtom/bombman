@@ -25,6 +25,16 @@ Keyboard::Keyboard(LPDIRECTINPUT8 pDI, HWND hwnd)
 	Clear();
 }
 
+
+Keyboard::~Keyboard()
+{
+	if (m_pDIDev)
+	{
+		m_pDIDev->Unacquire();
+		m_pDIDev->Release();
+	}
+}
+
 bool Keyboard::Acquire()
 {
 	Clear();

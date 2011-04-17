@@ -446,7 +446,7 @@ GlWindow::GlWindow(const TCHAR* szName, bool fscreen, int w, int h, int b)
 	mouseSensitivity = 2.0f;
 
 	inputSystem = new InputSystem();
-	//useDInput = inputSystem->Initialize(hWnd, (HINSTANCE)GetModuleHandle(NULL), true, IS_USEKEYBOARD | IS_USEMOUSE);
+	useDInput = inputSystem->Initialize(hWnd, (HINSTANCE)GetModuleHandle(NULL), true, IS_USEKEYBOARD | IS_USEMOUSE);
 
 	SetForegroundWindow(hWnd);
 	SetCapture(hWnd);

@@ -23,6 +23,11 @@ protected:
 	HPALETTE	hPalette;	// palette
 	HGLRC	hGLRC;	// rendering context
 
+	InputSystem *inputSystem;
+	bool useDInput;
+
+	Scene* currentScene;
+
 	virtual bool OnCreate() { return true; }
 	virtual bool OnClose() { return true; }
 	virtual void OnSize() { }
@@ -53,10 +58,6 @@ private:
 	bool fullscreen;
 
 	float mouseSensitivity;
-	bool useDInput;
-
-	InputSystem *inputSystem;
-	Scene* currentScene;
 
 	friend LRESULT APIENTRY WndProcOGL(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 

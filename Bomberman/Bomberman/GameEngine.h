@@ -10,7 +10,7 @@ public:
 	GameEngine();
 	GameEngine(const TCHAR* windowName, bool fullScreen, int width, int height, int b):Engine(windowName, fullScreen,width, height, b)
 	{
-		currentScene = new Scene();
+		//currentScene = new Scene();
 	}
 	~GameEngine();
 

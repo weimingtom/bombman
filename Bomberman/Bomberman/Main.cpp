@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, int nCmdShow)
 	GameEngine *engine = NULL;
 
 	try
-	{	
+	{
 		engine = new GameEngine(L"Bomberman", FALSE, 800, 600, 16);
 
 		loopRet = engine->EnterMessageLoop();

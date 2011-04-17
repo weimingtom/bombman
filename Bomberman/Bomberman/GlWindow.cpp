@@ -128,7 +128,8 @@ void GlWindow::Paint()
 	PAINTSTRUCT ps;
 	BeginPaint(hWnd, &ps);
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	if (currentScene) currentScene->Render();
+	if (currentScene)
+		currentScene->Render();
 	::SwapBuffers(hDC);
 	EndPaint(hWnd, &ps);
 }
@@ -475,17 +476,6 @@ GlWindow::~GlWindow()
 
 	ShowCursor(TRUE);
 }
-int GlWindow::InitGL(GLvoid)										// All Setup For OpenGL Goes Here
-{
-	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
-	glClearDepth(1.0f);									// Depth Buffer Setup
-	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
-	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
-	return TRUE;										// Initialization Went OK
-}
-
 
 bool GlWindow::Create()
 {
@@ -494,7 +484,7 @@ bool GlWindow::Create()
 	SetupPalette();
 	hGLRC = wglCreateContext(hDC);
 	wglMakeCurrent(hDC, hGLRC);
-	InitGL();
 	currentScene = new MenuScene();
+	currentScene->LoadScene();
 	return !OnCreate();
 }

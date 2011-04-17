@@ -10,8 +10,10 @@ class Texture;
 class MenuScene : public Scene
 {
 public:
-	MenuScene();
+	MenuScene(){}
 	~MenuScene();
+	virtual void LoadScene();
+	virtual void UnloadScene();
 protected:
 	virtual void OnRender();
 private:

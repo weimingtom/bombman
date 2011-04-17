@@ -1,5 +1,7 @@
 #pragma once
-
+#define DIRECTINPUT_VERSION 0x0800
+#define INITGUID 
+#include <Guiddef.h>
 #include<dinput.h>
 #include<Windows.h>
 
@@ -21,6 +23,5 @@ public:
 
 private:
 	LPDIRECTINPUTDEVICE8  m_pDIDev;
-
 	char    m_keys[256];
 };

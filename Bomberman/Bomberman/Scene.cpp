@@ -1,14 +1,43 @@
 #include"Scene.h"
 
-Scene::Scene()
+void Scene::Render()
 {
+	this->OnRender();
+}
+
+void Scene::Prepare()
+{
+	this->OnPrepare();
+}
+
+void Scene::Animate(float deltaTime)
+{
+	this->OnAnimate(deltaTime);
+}
+
+
+AudioSystem* Scene::GetAudioSystem()
+{
+	return audioSystem;
+}
+
+void Scene::LoadScene()
+{
+
+}
+
+void Scene::UnloadScene()
+{
+
+}
+
+void Scene::SetAudioSystem( AudioSystem* audioSys )
+{
+	audioSystem = audioSys;
 }
 
 Scene::~Scene()
 {
-}
-
-void Scene::Render()
-{
-	this->OnRender();
+	//audioSystem->ShutDown();
+	delete audioSystem;
 }

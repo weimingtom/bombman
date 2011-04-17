@@ -3,6 +3,6 @@
 class AudioSystem
 {
 public:
-	AudioSystem();
-	~AudioSystem();
+	AudioSystem(){}
+	~AudioSystem(){}
 };

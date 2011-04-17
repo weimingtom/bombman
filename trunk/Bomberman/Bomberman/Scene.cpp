@@ -15,20 +15,9 @@ void Scene::Animate(float deltaTime)
 	this->OnAnimate(deltaTime);
 }
 
-
 AudioSystem* Scene::GetAudioSystem()
 {
 	return audioSystem;
-}
-
-void Scene::LoadScene()
-{
-
-}
-
-void Scene::UnloadScene()
-{
-
 }
 
 void Scene::SetAudioSystem( AudioSystem* audioSys )

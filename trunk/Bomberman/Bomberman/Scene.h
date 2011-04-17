@@ -9,8 +9,8 @@ public:
 
 	void SetAudioSystem(AudioSystem* audioSys);
 	AudioSystem* GetAudioSystem();
-	void LoadScene();
-	void UnloadScene();
+	virtual void LoadScene(){}
+	virtual void UnloadScene(){}
 	void Animate(float deltaTime);
 	void Render();
 	void Prepare();

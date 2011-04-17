@@ -1,23 +1,21 @@
 #pragma once
 #include"Engine.h"
+#include"Scene.h"
 
 class Scene;
 
 class GameEngine: public Engine
 {
 public:
-	GameEngine(){}
+	GameEngine();
 	GameEngine(const TCHAR* windowName, bool fullScreen, int width, int height, int b):Engine(windowName, fullScreen,width, height, b)
 	{
-		//implement
+		currentScene = new Scene();
 	}
-	~GameEngine(){}
-protected:
-	//void OnPrepare();
-	//Scene* OnGetScene();
-	
-	//mouse and key
-private:
-	Scene* gameScene;
+	~GameEngine();
 
+protected:
+	virtual void OnPrepare();
+	virtual Scene* OnGetScene();
+	virtual void OnKeyDown(int nVirkey);
 };

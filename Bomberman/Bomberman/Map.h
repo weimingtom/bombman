@@ -5,20 +5,14 @@ class Map: public GameObject
 {
 public:
 	Map();
-	Map(int width,float rFactor);
 	~Map();
 	
 	void Load();
 	void Unload();
 
-	//get series of property
 protected:
-	void OnAnimate(float deltaTime);
-	void OnRender();
-	void OnCollision(GameObject* obj);
+	// to be considered
 
 private:
-	int width;
-	
 	//more setting
 };

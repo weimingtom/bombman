@@ -1,15 +1,34 @@
 #pragma once
-#include"GameObject.h"
+#include <vector>
 
-class Map: public GameObject
+enum GridState
+{
+	Empty, Dwall,Uwall,Player,NPC
+};
+
+struct GridInfo
+{
+	GridState gridState;
+	
+	float bAddBomb;
+	float bAddFlame;
+	float bFaster;
+	float bPush;
+	float bTrigger;
+	float mSlower;
+	float mDrop;
+
+	int col;
+	int row;
+};
+
+class Map
 {
 public:
 	Map();
 	~Map();
 	void Load();
 	void Unload();
-protected:
-	// to be considered
 private:
-	//more setting
+	std::vector<GridInfo> grids;
 };

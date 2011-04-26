@@ -19,5 +19,4 @@ private:
 	FSM* fsm;
 	Map* currentMap;
 	//Action action;
-
 };

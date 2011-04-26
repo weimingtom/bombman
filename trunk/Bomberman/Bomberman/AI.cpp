@@ -21,7 +21,8 @@ void AI::Perception()
 
 void AI::Decision()
 {
-
+	fsm->Init();
+	fsm->Update();
 }
 
 /*Action AI::GetAction()

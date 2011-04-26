@@ -42,7 +42,6 @@ protected:
 
 	bool toBeDelete;
 
-private:
 	Position pos2D;
 	Vector pos3D;
 	Vector velocity;

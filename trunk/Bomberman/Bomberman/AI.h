@@ -4,7 +4,7 @@ class NPC;
 class FSM;
 class Map;
 
-//enum Action;
+enum Action;
 
 class AI
 {
@@ -13,10 +13,10 @@ public:
 	~AI();
 	void Perception();
 	void Decision();
-	//Action GetAction();
+	Action GetAction();
 private:
 	NPC* npc;
 	FSM* fsm;
 	Map* currentMap;
-	//Action action;
+	Action action;
 };

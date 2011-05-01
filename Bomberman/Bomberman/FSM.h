@@ -10,10 +10,12 @@ class FSM
 public:
 	void Init();
 	void Update();
-	Transition* GetWaitingTransition();
-	Transition* GetMovingTransition();
-	Transition* GetBombingTransition();
-	void WriteState();
+	Transition* GetSearchBonusTran();
+	Transition* GetSearchDwallTran();
+	Transition* GetFleeTran();
+	Transition* GetPushBombTran();
+	Transition* GetTrigBombTran();
+	Transition* GetDropBombTran();
 private:
 	State* currentState;
 	std::vector<State*> stateList;

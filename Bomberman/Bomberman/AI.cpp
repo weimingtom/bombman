@@ -17,11 +17,6 @@ AI::~AI()
 	delete fsm;
 }
 
-void AI::Perception()
-{
-
-}
-
 void AI::Decision()
 {
 	fsm->Update();

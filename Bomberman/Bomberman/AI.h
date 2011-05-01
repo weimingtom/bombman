@@ -11,7 +11,6 @@ class AI
 public:
 	AI(NPC* npc);
 	~AI();
-	void Perception();
 	void Decision();
 	Action GetAction();
 private:

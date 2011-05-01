@@ -4,7 +4,7 @@ class State;
 class Transition
 {
 public:
-	Transition(State* next){nextState = next;}
+	Transition(State* next);
 	State* GetNextState();
 	//bool IsTrue();
 private:

@@ -29,6 +29,7 @@ public:
 	~Map();
 	void Load();
 	void Unload();
+	bool CanPass(int gridId);
 private:
 	std::vector<GridInfo> grids;
 };

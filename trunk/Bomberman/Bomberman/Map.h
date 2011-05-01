@@ -9,15 +9,8 @@ enum GridState
 struct GridInfo
 {
 	GridState gridState;
-	
-	float bAddBomb;
-	float bAddFlame;
-	float bFaster;
-	float bPush;
-	float bTrigger;
-	float mSlower;
-	float mDrop;
-
+	int expBonus;
+	int expDanger;
 	int col;
 	int row;
 };
@@ -30,6 +23,15 @@ public:
 	void Load();
 	void Unload();
 	bool CanPass(int gridId);
+	void SetBomb(int gridId);
+	//void HasBomb(int gridId);
 private:
 	std::vector<GridInfo> grids;
+	float bAddBomb;
+	float bAddFlame;
+	float bFaster;
+	float bPush;
+	float bTrigger;
+	float mSlower;
+	float mDrop;
 };

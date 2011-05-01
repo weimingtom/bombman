@@ -5,3 +5,8 @@ State* Transition::GetNextState()
 {
 	return nextState;
 }
+
+Transition::Transition( State* next )
+{
+	nextState = next;
+}
